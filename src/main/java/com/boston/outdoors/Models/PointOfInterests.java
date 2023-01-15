@@ -1,8 +1,12 @@
 package com.boston.outdoors.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,16 +24,16 @@ public class PointOfInterests {
     private Float Latitude;
 
     @Column(name = "ThumbnailDefaultontentURL", columnDefinition = "varchar")
-    private Float ThumbnailDefaultontentURL;
+    private String ThumbnailDefaultontentURL;
 
     @Column(name = "DefaultContentURL", columnDefinition = "varchar")
-    private Float DefaultContentURL;
+    private String DefaultContentURL;
 
     @Column(name = "Description", columnDefinition = "varchar")
-    private Float Description;
+    private String Description;
 
     @Column(name = "Title", columnDefinition = "varchar")
-    private Float Title;
+    private String Title;
 
     @Column(name = "DateModified", columnDefinition = "Timestamp with time zone")
     private Date DateModified;
@@ -38,7 +42,103 @@ public class PointOfInterests {
     private Date DateCreated;
 
 
+    @ManyToOne
+    @JoinColumn(name = "Chapters_id")
+    @JsonBackReference
+    private Chapters chapters;
+
+    @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "PointOfInterestContents")
-    private Set<PointOfInterestContents> PointOfInterestContents;
+    @JoinColumn(name = "PointOfInterests")
+    @JsonManagedReference
+    private Set<PointOfInterestContents> pointOfInterestContents;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Float getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        Longitude = longitude;
+    }
+
+    public Float getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        Latitude = latitude;
+    }
+
+    public String getThumbnailDefaultontentURL() {
+        return ThumbnailDefaultontentURL;
+    }
+
+    public void setThumbnailDefaultontentURL(String thumbnailDefaultontentURL) {
+        ThumbnailDefaultontentURL = thumbnailDefaultontentURL;
+    }
+
+    public String getDefaultContentURL() {
+        return DefaultContentURL;
+    }
+
+    public void setDefaultContentURL(String defaultContentURL) {
+        DefaultContentURL = defaultContentURL;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public Date getDateModified() {
+        return DateModified;
+    }
+
+    public void setDateModified(Date dateModified) {
+        DateModified = dateModified;
+    }
+
+    public Date getDateCreated() {
+        return DateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        DateCreated = dateCreated;
+    }
+
+    public Chapters getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(Chapters chapters) {
+        this.chapters = chapters;
+    }
+
+    public Set<PointOfInterestContents> getPointOfInterestContents() {
+        return pointOfInterestContents;
+    }
+
+    public void setPointOfInterestContents(Set<PointOfInterestContents> pointOfInterestContents) {
+        this.pointOfInterestContents = pointOfInterestContents;
+    }
 }

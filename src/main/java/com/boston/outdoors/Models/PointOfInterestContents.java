@@ -1,8 +1,10 @@
 package com.boston.outdoors.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
 
 @Entity
 public class PointOfInterestContents
@@ -34,7 +36,80 @@ public class PointOfInterestContents
     @Column(name = "DataCreated", columnDefinition = "Timestamp with time zone")
     private Date DataCreated;
 
+    @ManyToOne
+    @JoinColumn(name = "PointOfInterests")
+    @JsonBackReference
+    private PointOfInterests pointOfInterests;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Long getPointOfInterestID() {
+        return PointOfInterestID;
+    }
+
+    public void setPointOfInterestID(Long pointOfInterestID) {
+        PointOfInterestID = pointOfInterestID;
+    }
+
+    public Long getSequence() {
+        return Sequence;
+    }
+
+    public void setSequence(Long sequence) {
+        Sequence = sequence;
+    }
+
+    public Long getContentType() {
+        return ContentType;
+    }
+
+    public void setContentType(Long contentType) {
+        ContentType = contentType;
+    }
+
+    public String getThumbnailContentURL() {
+        return ThumbnailContentURL;
+    }
+
+    public void setThumbnailContentURL(String thumbnailContentURL) {
+        ThumbnailContentURL = thumbnailContentURL;
+    }
+
+    public String getContentURL() {
+        return ContentURL;
+    }
+
+    public void setContentURL(String contentURL) {
+        ContentURL = contentURL;
+    }
+
+    public Date getDataModified() {
+        return DataModified;
+    }
+
+    public void setDataModified(Date dataModified) {
+        DataModified = dataModified;
+    }
+
+    public Date getDataCreated() {
+        return DataCreated;
+    }
+
+    public void setDataCreated(Date dataCreated) {
+        DataCreated = dataCreated;
+    }
+
+    public PointOfInterests getPointOfInterests() {
+        return pointOfInterests;
+    }
+
+    public void setPointOfInterests(PointOfInterests pointOfInterests) {
+        this.pointOfInterests = pointOfInterests;
+    }
 }
