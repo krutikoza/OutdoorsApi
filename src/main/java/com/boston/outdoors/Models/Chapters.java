@@ -10,6 +10,7 @@ import java.util.Set;
 
 @Entity
 public class Chapters {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", columnDefinition = "bigint")
