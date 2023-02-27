@@ -67,9 +67,6 @@ public class Controller {
 
         return pointOfInterestViewModels;
 
-
-
-
     }
 
     // get all pointofinterestcontents
