@@ -11,3 +11,4 @@ phases:
 artifacts:
   files:
     - target/OutdoorsApi.war
+  discard-paths: yes
