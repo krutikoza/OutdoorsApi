@@ -96,6 +96,7 @@
 			</plugin>
 		</plugins>
 		<finalName>OutdoorsApi</finalName>
+
 	</build>
 
 </project>
