@@ -3,12 +3,12 @@ version: 0.2
 phases:
     build:
       commands:
-        - echo entered the build phase....
+        - echo Entered the build phase....
         - mvn clean package
     post_build:
       commands:
         - echo Build completed successfully
 artifacts:
   files:
-    - target/OutdoorsApi.war
+    - target/OutdoorsApi.jar
   discard-paths: yes
