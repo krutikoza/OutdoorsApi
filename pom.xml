@@ -11,7 +11,7 @@
 	<groupId>com.boston</groupId>
 	<artifactId>OutdoorsApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+<!--	<packaging>war</packaging>-->
 	<name>OutdoorsApi</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -86,6 +86,7 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -93,10 +94,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 			</plugin>
+
 		</plugins>
 		<finalName>OutdoorsApi</finalName>
 
-	</build>
 
+	</build>
 </project>
