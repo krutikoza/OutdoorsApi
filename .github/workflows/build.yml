@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: target/tweet_scheduler-0.0.1-SNAPSHOT.jar
+          path: target/OutdoorsApi.jar
   deploy:
     needs: build
     name: Deploy
@@ -40,8 +40,8 @@ jobs:
           aws_secret_key: ${xzfNG78ut3dPwTMsC/pKLKVpqrxFMVvf4PElapAS}
           #aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           use_existing_version_if_available: false
-          application_name: autocluck
-          environment_name: Autocluck-env
+          application_name: OutdoorsApi
+          environment_name: Outdoorsapi-env
           version_label: ${{github.SHA}}
           region: us-east-1
           deployment_package: OutdoorsApi.jar
