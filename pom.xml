@@ -11,7 +11,7 @@
 	<groupId>com.boston</groupId>
 	<artifactId>OutdoorsApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+<!--	<packaging>war</packaging>-->
 	<name>OutdoorsApi</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
