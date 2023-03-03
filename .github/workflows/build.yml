@@ -43,5 +43,5 @@ jobs:
           application_name: OutdoorsApi
           environment_name: Outdoorsapi-env
           version_label: ${{github.SHA}}
-          region: us-east-1
+          region: us-east-2
           deployment_package: OutdoorsApi.jar
