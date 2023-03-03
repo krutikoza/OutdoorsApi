@@ -62,6 +62,8 @@ public class ChaptersControllerImpl implements ChaptersController {
         return new PageImpl<>(dtoList, pageable, chaptersPage.getTotalElements());
     }
 
+
+
     @Override
     @PutMapping("/{id}")
     public ChaptersDTO update(@RequestBody ChaptersDTO chaptersDTO, @PathVariable("id") Long id) {
