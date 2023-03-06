@@ -1,2 +1,16 @@
 server:
   port: 5000
+
+cloud:
+  aws:
+    credentials:
+      access_key: ${{secrets.AWS_ACCESS_KEY}}
+      secret_key: ${{secrets.AWS_SECRET_KEY}}
+#    region:
+#      static: us-east-2
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: outdoorsimages
