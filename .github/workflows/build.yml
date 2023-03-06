@@ -36,8 +36,8 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v13
         with:
-          aws_access_key: AKIASGDTKDIT4WLZP4UA
-          aws_secret_key: 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
+          aws_access_key: ${{secrets.AWS_ACCESS_KEY}}
+          aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
           #aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           use_existing_version_if_available: false
           application_name: OutdoorsApi
