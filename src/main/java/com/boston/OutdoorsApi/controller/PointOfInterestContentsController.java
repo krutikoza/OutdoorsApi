@@ -29,4 +29,8 @@ public interface PointOfInterestContentsController {
 
     @ApiOperation("Update one data")
     public PointOfInterestContentsDTO update(@RequestBody PointOfInterestContentsDTO dto, @PathVariable("id") Long id);
+
+
+    @ApiOperation("Get by Point of interest ID")
+    public List<PointOfInterestContentsDTO> getByPoiId(@PathVariable("id") Long id);
 }

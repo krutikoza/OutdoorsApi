@@ -5,7 +5,7 @@ import com.boston.OutdoorsApi.Models.PointOfInterests;
 import java.util.Date;
 import java.util.Set;
 
-public class ChaptersDTO extends AbstractDTO<Long> {
+public class ChaptersDTO{
     private Long id;
     private String ThumbnailImageURL;
     private String ImageURL;
@@ -13,7 +13,7 @@ public class ChaptersDTO extends AbstractDTO<Long> {
     private String Title;
     private Date DateModified;
     private Date DateCreated;
-    private Set<PointOfInterests> pointOfInterests;
+//    private Set<PointOfInterests> pointOfInterests;
 
     public ChaptersDTO() {
     }
@@ -74,11 +74,11 @@ public class ChaptersDTO extends AbstractDTO<Long> {
         return this.DateCreated;
     }
 
-    public void setPointOfInterests(Set<com.boston.OutdoorsApi.Models.PointOfInterests> pointOfInterests) {
-        this.pointOfInterests = pointOfInterests;
-    }
-
-    public Set<com.boston.OutdoorsApi.Models.PointOfInterests> getPointOfInterests() {
-        return this.pointOfInterests;
-    }
+//    public void setPointOfInterests(Set<com.boston.OutdoorsApi.Models.PointOfInterests> pointOfInterests) {
+//        this.pointOfInterests = pointOfInterests;
+//    }
+//
+//    public Set<com.boston.OutdoorsApi.Models.PointOfInterests> getPointOfInterests() {
+//        return this.pointOfInterests;
+//    }
 }

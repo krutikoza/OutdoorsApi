@@ -7,7 +7,8 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = ReferenceMapper.class)
 public interface ChaptersMapper extends GenericMapper<Chapters, ChaptersDTO> {
-    @Override
-    @Mapping(target = "id", ignore = false)
-    Chapters asEntity(ChaptersDTO dto);
+//    @Override
+//    @Mapping(target = "id", ignore = false)
+//    Chapters asEntity(ChaptersDTO dto);
+
 }

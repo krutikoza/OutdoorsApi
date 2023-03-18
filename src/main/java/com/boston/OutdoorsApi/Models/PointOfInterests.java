@@ -1,57 +1,61 @@
 package com.boston.OutdoorsApi.Models;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "PointOfInterests")
+@Table(name = "pointofinterests")
 public class PointOfInterests {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", columnDefinition = "bigint")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", columnDefinition = "bigint")
     private Long id;
 
 
-    @Column(name = "Longitude", columnDefinition = "float")
+    @Column(name = "longitude", columnDefinition = "float")
     private Float Longitude;
 
-    @Column(name = "Latitude", columnDefinition = "float")
+    @Column(name = "latitude", columnDefinition = "float")
     private Float Latitude;
 
-    @Column(name = "ThumbnailDefaultontentURL", columnDefinition = "varchar")
+    @Column(name = "thumbnaildefaultontenturl", columnDefinition = "varchar")
     private String ThumbnailDefaultontentURL;
 
-    @Column(name = "DefaultContentURL", columnDefinition = "varchar")
+    @Column(name = "defaultcontenturl", columnDefinition = "varchar")
     private String DefaultContentURL;
 
-    @Column(name = "Description", columnDefinition = "varchar")
+    @Column(name = "description", columnDefinition = "varchar")
     private String Description;
 
-    @Column(name = "Title", columnDefinition = "varchar")
+    @Column(name = "title", columnDefinition = "varchar")
     private String Title;
 
-    @Column(name = "DateModified", columnDefinition = "Timestamp with time zone")
+    @UpdateTimestamp
+    @Column(name = "datemodified", columnDefinition = "Timestamp with time zone")
     private Date DateModified;
-
-    @Column(name = "DateCreated", columnDefinition = "Timestamp with time zone")
+    @CreationTimestamp
+    @Column(name = "datecreated", columnDefinition = "Timestamp with time zone")
     private Date DateCreated;
 
 
-    @ManyToOne
-    @JoinColumn(name = "Chapters")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "chapters_id")
     @JsonBackReference
     private Chapters chapters;
 
-    @JsonIgnore
-    @OneToMany
-    @JoinColumn(name = "PointOfInterests")
-    @JsonManagedReference
-    private Set<PointOfInterestContents> pointOfInterestContents;
+//    @JsonIgnore
+//    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "pointofinterests", referencedColumnName = "id")
+//    @JsonManagedReference
+//    private Set<PointOfInterestContents> pointOfInterestContents;
 
 
     public Long getId() {
@@ -134,11 +138,11 @@ public class PointOfInterests {
         this.chapters = chapters;
     }
 
-    public Set<PointOfInterestContents> getPointOfInterestContents() {
-        return pointOfInterestContents;
-    }
-
-    public void setPointOfInterestContents(Set<PointOfInterestContents> pointOfInterestContents) {
-        this.pointOfInterestContents = pointOfInterestContents;
-    }
+//    public Set<PointOfInterestContents> getPointOfInterestContents() {
+//        return pointOfInterestContents;
+//    }
+//
+//    public void setPointOfInterestContents(Set<PointOfInterestContents> pointOfInterestContents) {
+//        this.pointOfInterestContents = pointOfInterestContents;
+//    }
 }

@@ -4,15 +4,16 @@ import com.boston.OutdoorsApi.Models.PointOfInterests;
 
 import java.util.Date;
 
-public class PointOfInterestContentsDTO extends AbstractDTO<Long> {
+public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
     private Long id;
-    private Long PointOfInterestID;
+//    private Long PointOfInterestID;
     private Long Sequence;
     private Long ContentType;
     private String ThumbnailContentURL;
     private String ContentURL;
     private Date DataModified;
     private Date DataCreated;
+
     private PointOfInterests pointOfInterests;
 
     public PointOfInterestContentsDTO() {
@@ -26,13 +27,13 @@ public class PointOfInterestContentsDTO extends AbstractDTO<Long> {
         return this.id;
     }
 
-    public void setPointOfInterestID(Long PointOfInterestID) {
-        this.PointOfInterestID = PointOfInterestID;
-    }
-
-    public Long getPointOfInterestID() {
-        return this.PointOfInterestID;
-    }
+//    public void setPointOfInterestID(Long PointOfInterestID) {
+//        this.PointOfInterestID = PointOfInterestID;
+//    }
+//
+//    public Long getPointOfInterestID() {
+//        return this.PointOfInterestID;
+//    }
 
     public void setSequence(Long Sequence) {
         this.Sequence = Sequence;

@@ -2,6 +2,9 @@ package com.boston.OutdoorsApi.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 
 import java.util.Date;
@@ -12,8 +15,8 @@ import java.util.Set;
 public class Chapters {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", columnDefinition = "bigint")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id", columnDefinition = "bigint")
     private Long id;
 
 
@@ -29,17 +32,20 @@ public class Chapters {
     @Column(name = "Title", columnDefinition = "varchar")
     private String Title;
 
+
+    @UpdateTimestamp
     @Column(name = "DateModified", columnDefinition = "Timestamp with time zone")
     private Date DateModified;
 
+    @CreationTimestamp
     @Column(name = "DateCreated", columnDefinition = "Timestamp with time zone")
     private Date DateCreated;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Chapters_id")
-    @JsonManagedReference
-    private Set<PointOfInterests> pointOfInterests;
+//    @JsonIgnore
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "chapters")
+////    @JoinColumn(name = "chapters_id", referencedColumnName = "id")
+//    @JsonManagedReference
+//    private Set<PointOfInterests> pointOfInterests;
 
     public Long getId() {
         return id;
@@ -97,11 +103,11 @@ public class Chapters {
         DateCreated = dateCreated;
     }
 
-    public Set<PointOfInterests> getPointOfInterests() {
-        return pointOfInterests;
-    }
-
-    public void setPointOfInterests(Set<PointOfInterests> pointOfInterests) {
-        this.pointOfInterests = pointOfInterests;
-    }
+//    public Set<PointOfInterests> getPointOfInterests() {
+//        return pointOfInterests;
+//    }
+//
+//    public void setPointOfInterests(Set<PointOfInterests> pointOfInterests) {
+//        this.pointOfInterests = pointOfInterests;
+//    }
 }

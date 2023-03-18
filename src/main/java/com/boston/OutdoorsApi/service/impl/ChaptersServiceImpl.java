@@ -2,6 +2,8 @@ package com.boston.OutdoorsApi.service.impl;
 
 import com.boston.OutdoorsApi.Models.Chapters;
 import com.boston.OutdoorsApi.dao.ChaptersRepository;
+import com.boston.OutdoorsApi.dto.ChaptersDTO;
+import com.boston.OutdoorsApi.mapper.ChaptersMapper;
 import com.boston.OutdoorsApi.service.ChaptersService;
 import javax.transaction.Transactional;
 import org.springframework.data.domain.Page;

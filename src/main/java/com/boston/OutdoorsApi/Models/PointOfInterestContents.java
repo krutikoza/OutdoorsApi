@@ -1,6 +1,10 @@
 package com.boston.OutdoorsApi.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 
 import java.util.Date;
@@ -11,34 +15,39 @@ import java.util.Date;
 public class PointOfInterestContents
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", columnDefinition = "bigint")
     private Long id;
 
 
-    @Column(name = "PointOfInterestID", columnDefinition = "bigint")
-    private Long PointOfInterestID;
+//    @Column(name = "pointofinterestid", columnDefinition = "bigint")
+//    private Long PointOfInterestID;
 
-    @Column(name = "Sequence", columnDefinition = "bigint")
+    @Column(name = "sequence", columnDefinition = "bigint")
     private Long Sequence;
 
-    @Column(name = "ContentType", columnDefinition = "int")
+    @Column(name = "contenttype", columnDefinition = "int")
     private Long ContentType;
 
-    @Column(name = "ThumbnailContentURL", columnDefinition = "varchar")
+    @Column(name = "thumbnailcontenturl", columnDefinition = "varchar")
     private String ThumbnailContentURL;
 
-    @Column(name = "ContentURL", columnDefinition = "varchar")
+    @Column(name = "contenturl", columnDefinition = "varchar")
     private String ContentURL;
 
-    @Column(name = "DataModified", columnDefinition = "Timestamp with time zone")
+    @Column(name = "description", columnDefinition = "varchar")
+    private String description;
+
+    @UpdateTimestamp
+    @Column(name = "datamodified", columnDefinition = "Timestamp with time zone")
     private Date DataModified;
 
-    @Column(name = "DataCreated", columnDefinition = "Timestamp with time zone")
+    @CreationTimestamp
+    @Column(name = "datacreated", columnDefinition = "Timestamp with time zone")
     private Date DataCreated;
 
-    @ManyToOne
-    @JoinColumn(name = "PointOfInterests")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pointofinterests")
     @JsonBackReference
     private PointOfInterests pointOfInterests;
 
@@ -50,13 +59,13 @@ public class PointOfInterestContents
         this.id = id;
     }
 
-    public Long getPointOfInterestID() {
-        return PointOfInterestID;
-    }
-
-    public void setPointOfInterestID(Long pointOfInterestID) {
-        PointOfInterestID = pointOfInterestID;
-    }
+//    public Long getPointOfInterestID() {
+//        return PointOfInterestID;
+//    }
+//
+//    public void setPointOfInterestID(Long pointOfInterestID) {
+//        PointOfInterestID = pointOfInterestID;
+//    }
 
     public Long getSequence() {
         return Sequence;

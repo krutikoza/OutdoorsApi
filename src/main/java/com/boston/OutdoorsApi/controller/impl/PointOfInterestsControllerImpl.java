@@ -2,6 +2,7 @@ package com.boston.OutdoorsApi.controller.impl;
 
 import com.boston.OutdoorsApi.Models.PointOfInterests;
 import com.boston.OutdoorsApi.controller.PointOfInterestsController;
+import com.boston.OutdoorsApi.dao.PointOfInterestsRepository;
 import com.boston.OutdoorsApi.dto.PointOfInterestsDTO;
 import com.boston.OutdoorsApi.mapper.PointOfInterestsMapper;
 import com.boston.OutdoorsApi.service.PointOfInterestsService;
@@ -21,10 +22,13 @@ import java.util.stream.Collectors;
 public class PointOfInterestsControllerImpl implements PointOfInterestsController {
     private final PointOfInterestsService pointOfInterestsService;
     private final PointOfInterestsMapper pointOfInterestsMapper;
+    private final PointOfInterestsRepository pointOfInterestsRepository;
 
-    public PointOfInterestsControllerImpl(PointOfInterestsService pointOfInterestsService, PointOfInterestsMapper pointOfInterestsMapper) {
+    public PointOfInterestsControllerImpl(PointOfInterestsService pointOfInterestsService, PointOfInterestsMapper pointOfInterestsMapper,
+                                          PointOfInterestsRepository pointOfInterestsRepository) {
         this.pointOfInterestsService = pointOfInterestsService;
         this.pointOfInterestsMapper = pointOfInterestsMapper;
+        this.pointOfInterestsRepository = pointOfInterestsRepository;
     }
 
     @Override
@@ -63,6 +67,20 @@ public class PointOfInterestsControllerImpl implements PointOfInterestsControlle
                 .map(pointOfInterestsMapper::asDTO).collect(Collectors.toList());
         return new PageImpl<>(dtoList, pageable, pointOfInterestsPage.getTotalElements());
     }
+
+
+    @Override
+    @GetMapping("/bychapterid/{id}")
+    public List<PointOfInterestsDTO> pageQuery(@PathVariable("id") Long id) {
+        List<PointOfInterests> pointOfInterests = pointOfInterestsRepository.findByChapterId(id);
+
+        List<PointOfInterestsDTO> dtoList = pointOfInterests
+                .stream()
+                .map(pointOfInterestsMapper::asDTO).collect(Collectors.toList());
+
+        return dtoList;
+    }
+
 
     @Override
     @PutMapping("/{id}")

@@ -6,7 +6,7 @@ import com.boston.OutdoorsApi.Models.PointOfInterestContents;
 import java.util.Date;
 import java.util.Set;
 
-public class PointOfInterestsDTO extends AbstractDTO<Long> {
+public class PointOfInterestsDTO{ // extends AbstractDTO<Long> {
     private Long id;
     private Float Longitude;
     private Float Latitude;
@@ -16,8 +16,9 @@ public class PointOfInterestsDTO extends AbstractDTO<Long> {
     private String Title;
     private Date DateModified;
     private Date DateCreated;
+
     private Chapters chapters;
-    private Set<PointOfInterestContents> pointOfInterestContents;
+//    private Set<PointOfInterestContents> pointOfInterestContents;
 
     public PointOfInterestsDTO() {
     }
@@ -102,11 +103,11 @@ public class PointOfInterestsDTO extends AbstractDTO<Long> {
         return this.chapters;
     }
 
-    public void setPointOfInterestContents(java.util.Set<com.boston.OutdoorsApi.Models.PointOfInterestContents> pointOfInterestContents) {
-        this.pointOfInterestContents = pointOfInterestContents;
-    }
-
-    public java.util.Set<com.boston.OutdoorsApi.Models.PointOfInterestContents> getPointOfInterestContents() {
-        return this.pointOfInterestContents;
-    }
+//    public void setPointOfInterestContents(java.util.Set<com.boston.OutdoorsApi.Models.PointOfInterestContents> pointOfInterestContents) {
+//        this.pointOfInterestContents = pointOfInterestContents;
+//    }
+//
+//    public java.util.Set<com.boston.OutdoorsApi.Models.PointOfInterestContents> getPointOfInterestContents() {
+//        return this.pointOfInterestContents;
+//    }
 }

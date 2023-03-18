@@ -2,6 +2,8 @@ package com.boston.OutdoorsApi.controller.impl;
 
 import com.boston.OutdoorsApi.Models.PointOfInterestContents;
 import com.boston.OutdoorsApi.controller.PointOfInterestContentsController;
+import com.boston.OutdoorsApi.dao.PointOfInterestContentsRepository;
+import com.boston.OutdoorsApi.dao.PointOfInterestsRepository;
 import com.boston.OutdoorsApi.dto.PointOfInterestContentsDTO;
 import com.boston.OutdoorsApi.mapper.PointOfInterestContentsMapper;
 import com.boston.OutdoorsApi.service.PointOfInterestContentsService;
@@ -21,10 +23,16 @@ import java.util.stream.Collectors;
 public class PointOfInterestContentsControllerImpl implements PointOfInterestContentsController {
     private final PointOfInterestContentsService pointOfInterestContentsService;
     private final PointOfInterestContentsMapper pointOfInterestContentsMapper;
+    private final PointOfInterestsRepository pointOfInterestsRepository;
+    private final PointOfInterestContentsRepository pointOfInterestContentsRepository;
 
-    public PointOfInterestContentsControllerImpl(PointOfInterestContentsService pointOfInterestContentsService, PointOfInterestContentsMapper pointOfInterestContentsMapper) {
+    public PointOfInterestContentsControllerImpl(PointOfInterestContentsService pointOfInterestContentsService, PointOfInterestContentsMapper pointOfInterestContentsMapper,
+                                                 PointOfInterestsRepository pointOfInterestsRepository,
+                                                 PointOfInterestContentsRepository pointOfInterestContentsRepository) {
         this.pointOfInterestContentsService = pointOfInterestContentsService;
         this.pointOfInterestContentsMapper = pointOfInterestContentsMapper;
+        this.pointOfInterestsRepository = pointOfInterestsRepository;
+        this.pointOfInterestContentsRepository = pointOfInterestContentsRepository;
     }
 
     @Override
@@ -62,6 +70,19 @@ public class PointOfInterestContentsControllerImpl implements PointOfInterestCon
                 .stream()
                 .map(pointOfInterestContentsMapper::asDTO).collect(Collectors.toList());
         return new PageImpl<>(dtoList, pageable, pointOfInterestContentsPage.getTotalElements());
+    }
+
+
+
+    @Override
+    @GetMapping("/bypoiid/{id}")
+    public List<PointOfInterestContentsDTO> getByPoiId(@PathVariable("id") Long id) {
+        List<PointOfInterestContents> pointOfInterestContents = pointOfInterestContentsRepository.findByPoiId(id);
+
+        List<PointOfInterestContentsDTO> dtoList = pointOfInterestContents
+                .stream()
+                .map(pointOfInterestContentsMapper::asDTO).collect(Collectors.toList());
+        return dtoList;
     }
 
     @Override

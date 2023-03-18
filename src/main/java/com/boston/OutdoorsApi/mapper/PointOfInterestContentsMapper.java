@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = ReferenceMapper.class)
 public interface PointOfInterestContentsMapper extends GenericMapper<PointOfInterestContents, PointOfInterestContentsDTO> {
-    @Override
-    @Mapping(target = "id", ignore = false)
-    PointOfInterestContents asEntity(PointOfInterestContentsDTO dto);
+//    @Override
+//    @Mapping(target = "id", ignore = false)
+//    PointOfInterestContents asEntity(PointOfInterestContentsDTO dto);
 }
