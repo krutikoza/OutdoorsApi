@@ -1,5 +1,6 @@
 package com.boston.OutdoorsApi.controller;
 
+
 import com.boston.OutdoorsApi.dto.PointOfInterestsDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +31,9 @@ public interface PointOfInterestsController {
     @ApiOperation("Update one data")
     public PointOfInterestsDTO update(@RequestBody PointOfInterestsDTO dto, @PathVariable("id") Long id);
 
-    @ApiOperation("Get data with specific chapters id")
+    @ApiOperation("Get data with specific id")
     public List<PointOfInterestsDTO> pageQuery(@PathVariable("id") Long id);
+
+    @ApiOperation("Get data with search query")
+    public List<PointOfInterestsDTO> search(@PathVariable String field) throws Exception;
 }

@@ -20,6 +20,7 @@ import java.util.Optional;
 public class PointOfInterestsServiceImpl implements PointOfInterestsService {
     private final PointOfInterestsRepository repository;
 
+
     public PointOfInterestsServiceImpl(PointOfInterestsRepository repository) {
         this.repository = repository;
     }

@@ -1,5 +1,6 @@
 package com.boston.OutdoorsApi.controller;
 
+
 import com.boston.OutdoorsApi.dto.ChaptersDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,4 +30,9 @@ public interface ChaptersController {
 
     @ApiOperation("Update one data")
     public ChaptersDTO update(@RequestBody ChaptersDTO dto, @PathVariable("id") Long id);
+
+//    public List<Chapters> search(@PathVariable int offset, @PathVariable int pagesize, @PathVariable String field) throws Exception;
+
+
+    public List<ChaptersDTO> search(@PathVariable String field) throws Exception;
 }

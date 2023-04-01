@@ -3,14 +3,32 @@ package com.boston.OutdoorsApi.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
+import org.apache.lucene.analysis.core.WhitespaceTokenizerFactory;
+import org.apache.lucene.analysis.ngram.NGramFilterFactory;
+import org.apache.lucene.analysis.snowball.SnowballPorterFilterFactory;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
 
 import java.util.Date;
 import java.util.Set;
 
+@AnalyzerDef(name = "customanalyzer1", tokenizer = @TokenizerDef(factory = WhitespaceTokenizerFactory.class), filters = {
+        @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+        @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = { @org.hibernate.search.annotations.Parameter(name = "language", value = "English") }),
+        @TokenFilterDef(factory = NGramFilterFactory.class, params = { @org.hibernate.search.annotations.Parameter(name = "maxGramSize", value = "15") })
+
+})
+@AnalyzerDef(name = "customanalyzer_query1", tokenizer = @TokenizerDef(factory = WhitespaceTokenizerFactory.class), filters = {
+        @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+        @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = { @org.hibernate.search.annotations.Parameter(name = "language", value = "English") })
+
+})
+@Indexed
 @Entity
 @Table(name = "pointofinterests")
 public class PointOfInterests {
@@ -32,9 +50,10 @@ public class PointOfInterests {
     @Column(name = "defaultcontenturl", columnDefinition = "varchar")
     private String DefaultContentURL;
 
+    @Field(index = Index.YES, store = Store.YES, analyze = Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer1"))
     @Column(name = "description", columnDefinition = "varchar")
     private String Description;
-
+    @Field(index = Index.YES, store = Store.YES, analyze = Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer1"))
     @Column(name = "title", columnDefinition = "varchar")
     private String Title;
 

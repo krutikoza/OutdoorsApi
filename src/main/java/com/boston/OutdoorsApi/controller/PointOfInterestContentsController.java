@@ -1,5 +1,6 @@
 package com.boston.OutdoorsApi.controller;
 
+import com.boston.OutdoorsApi.Models.PointOfInterestContents;
 import com.boston.OutdoorsApi.dto.PointOfInterestContentsDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,6 +32,6 @@ public interface PointOfInterestContentsController {
     public PointOfInterestContentsDTO update(@RequestBody PointOfInterestContentsDTO dto, @PathVariable("id") Long id);
 
 
-    @ApiOperation("Get by Point of interest ID")
+    @ApiOperation("Get by data ID")
     public List<PointOfInterestContentsDTO> getByPoiId(@PathVariable("id") Long id);
 }
