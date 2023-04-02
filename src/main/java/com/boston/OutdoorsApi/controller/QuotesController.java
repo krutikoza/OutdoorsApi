@@ -1,6 +1,7 @@
 package com.boston.OutdoorsApi.controller;
 
 
+
 import com.boston.OutdoorsApi.dto.QuotesDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,7 +37,7 @@ public interface QuotesController {
 
 
     @ApiOperation("Get random entity")
-    public String getRandom();
+    public QuotesDTO getRandom();
 
 
 }

@@ -76,7 +76,7 @@ public class QuotesControllerImpl implements QuotesController {
 
     @Override
     @GetMapping("/random")
-    public String getRandom() {
+    public QuotesDTO getRandom() {
         return quotesService.findRandom();
     }
 }

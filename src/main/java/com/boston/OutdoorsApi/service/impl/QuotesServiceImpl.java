@@ -2,6 +2,7 @@ package com.boston.OutdoorsApi.service.impl;
 
 import com.boston.OutdoorsApi.Models.Quotes;
 import com.boston.OutdoorsApi.dao.QuotesRepository;
+import com.boston.OutdoorsApi.dto.QuotesDTO;
 import com.boston.OutdoorsApi.service.QuotesService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -60,7 +61,9 @@ public class QuotesServiceImpl implements QuotesService {
     }
 
 
-    public String findRandom() {
+    public QuotesDTO findRandom() {
+
+        QuotesDTO quotes = new QuotesDTO();
 
         Long qty = quotesRepository.count();
         int idx = (int)(Math.random() * qty);
@@ -69,9 +72,11 @@ public class QuotesServiceImpl implements QuotesService {
         Quotes q = null;
         if (quotesPage.hasContent()) {
             q = quotesPage.getContent().get(0);
-            return q.getQuote();
+            quotes.setQuote(q.getQuote());
+            System.out.println(quotes);
+            return quotes;
         }
-        return "";
+        return new QuotesDTO();
     }
 
 }
