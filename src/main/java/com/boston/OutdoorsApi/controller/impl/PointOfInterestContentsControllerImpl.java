@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -78,6 +79,11 @@ public class PointOfInterestContentsControllerImpl implements PointOfInterestCon
     @GetMapping("/bypoiid/{id}")
     public List<PointOfInterestContentsDTO> getByPoiId(@PathVariable("id") Long id) {
         List<PointOfInterestContents> pointOfInterestContents = pointOfInterestContentsRepository.findByPoiId(id);
+
+        Map <Object, List<PointOfInterestContents>> groupedList = pointOfInterestContents
+                .stream()
+                .collect(Collectors.groupingBy(content -> content.getContentType()));
+
 
         List<PointOfInterestContentsDTO> dtoList = pointOfInterestContents
                 .stream()

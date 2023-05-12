@@ -122,4 +122,19 @@ public class PointOfInterestContents
     public void setPointOfInterests(PointOfInterests pointOfInterests) {
         this.pointOfInterests = pointOfInterests;
     }
+
+    @Override
+    public String toString() {
+        return "PointOfInterestContents{" +
+                "id=" + id +
+                ", Sequence=" + Sequence +
+                ", ContentType=" + ContentType +
+                ", ThumbnailContentURL='" + ThumbnailContentURL + '\'' +
+                ", ContentURL='" + ContentURL + '\'' +
+                ", description='" + description + '\'' +
+                ", DataModified=" + DataModified +
+                ", DataCreated=" + DataCreated +
+                ", pointOfInterests=" + pointOfInterests +
+                '}';
+    }
 }

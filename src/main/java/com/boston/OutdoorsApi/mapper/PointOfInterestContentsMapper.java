@@ -5,7 +5,7 @@ import com.boston.OutdoorsApi.dto.PointOfInterestContentsDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = ReferenceMapper.class)
+//@Mapper(componentModel = "spring", uses = ReferenceMapper.class)
 public interface PointOfInterestContentsMapper extends GenericMapper<PointOfInterestContents, PointOfInterestContentsDTO> {
 //    @Override
 //    @Mapping(target = "id", ignore = false)

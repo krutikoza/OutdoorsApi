@@ -5,7 +5,6 @@ import com.boston.OutdoorsApi.controller.impl.ChaptersControllerImpl;
 import com.boston.OutdoorsApi.controller.impl.CustomUtils;
 import com.boston.OutdoorsApi.dto.ChaptersDTO;
 import com.boston.OutdoorsApi.mapper.ChaptersMapper;
-import com.boston.OutdoorsApi.mapper.ReferenceMapper;
 import com.boston.OutdoorsApi.service.ChaptersService;
 import com.google.gson.Gson;
 import org.hamcrest.Matchers;

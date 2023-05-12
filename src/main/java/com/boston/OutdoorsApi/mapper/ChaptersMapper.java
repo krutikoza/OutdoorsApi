@@ -5,7 +5,7 @@ import com.boston.OutdoorsApi.dto.ChaptersDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = ReferenceMapper.class)
+//@Mapper(componentModel = "spring", uses = ReferenceMapper.class)
 public interface ChaptersMapper extends GenericMapper<Chapters, ChaptersDTO> {
 //    @Override
 //    @Mapping(target = "id", ignore = false)

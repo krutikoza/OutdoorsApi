@@ -14,6 +14,11 @@ public class Quotes {
     @Column(name = "quote", columnDefinition = "varchar")
     private String quote;
 
+    @Column(name = "author", columnDefinition = "varchar")
+    private String author;
+
+
+
     public Quotes() {
     }
 
@@ -37,11 +42,20 @@ public class Quotes {
         this.quote = quote;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public String toString() {
         return "Quotes{" +
                 "id=" + id +
                 ", quote='" + quote + '\'' +
+                ", author='" + author + '\'' +
                 '}';
     }
 }

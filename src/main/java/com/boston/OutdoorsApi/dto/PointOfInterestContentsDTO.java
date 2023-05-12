@@ -3,6 +3,7 @@ package com.boston.OutdoorsApi.dto;
 import com.boston.OutdoorsApi.Models.PointOfInterests;
 
 import java.util.Date;
+import java.util.List;
 
 public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
     private Long id;
@@ -10,11 +11,12 @@ public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
     private Long Sequence;
     private Long ContentType;
     private String ThumbnailContentURL;
-    private String ContentURL;
+    private List<String> ContentURL;
     private Date DataModified;
     private Date DataCreated;
 
-    private PointOfInterests pointOfInterests;
+    // private PointOfInterests pointOfInterests;
+    private Long pointOfInterestsId;
 
     public PointOfInterestContentsDTO() {
     }
@@ -59,11 +61,11 @@ public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
         return this.ThumbnailContentURL;
     }
 
-    public void setContentURL(String ContentURL) {
+    public void setContentURL(List<String> ContentURL) {
         this.ContentURL = ContentURL;
     }
 
-    public String getContentURL() {
+    public List<String> getContentURL() {
         return this.ContentURL;
     }
 
@@ -83,11 +85,20 @@ public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
         return this.DataCreated;
     }
 
-    public void setPointOfInterests(PointOfInterests pointOfInterests) {
-        this.pointOfInterests = pointOfInterests;
+//    public void setPointOfInterests(PointOfInterests pointOfInterests) {
+//        this.pointOfInterests = pointOfInterests;
+//    }
+//
+//    public PointOfInterests getPointOfInterests() {
+//        return this.pointOfInterests;
+//    }
+
+
+    public Long getPointOfInterestsId() {
+        return pointOfInterestsId;
     }
 
-    public PointOfInterests getPointOfInterests() {
-        return this.pointOfInterests;
+    public void setPointOfInterestsId(Long pointOfInterestsId) {
+        this.pointOfInterestsId = pointOfInterestsId;
     }
 }
