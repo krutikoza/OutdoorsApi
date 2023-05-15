@@ -1,11 +1,10 @@
 package com.boston.OutdoorsApi;
 
-import com.boston.OutdoorsApi.service.impl.IndexingService;
-import org.hibernate.search.jpa.FullTextEntityManager;
-import org.hibernate.search.jpa.Search;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -16,7 +15,7 @@ import javax.persistence.EntityManager;
 @EnableWebMvc
 @EnableSwagger2
 @SpringBootApplication
-public class OutdoorsApiApplication {
+public class OutdoorsApiApplication extends SpringBootServletInitializer {
 
 
 
