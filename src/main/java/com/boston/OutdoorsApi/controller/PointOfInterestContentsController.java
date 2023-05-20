@@ -1,6 +1,7 @@
 package com.boston.OutdoorsApi.controller;
 
 import com.boston.OutdoorsApi.Models.PointOfInterestContents;
+import com.boston.OutdoorsApi.dto.POIContentListDTO;
 import com.boston.OutdoorsApi.dto.PointOfInterestContentsDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Api(tags = "PointOfInterestContents API")
 public interface PointOfInterestContentsController {
@@ -33,5 +35,5 @@ public interface PointOfInterestContentsController {
 
 
     @ApiOperation("Get by data ID")
-    public List<PointOfInterestContentsDTO> getByPoiId(@PathVariable("id") Long id);
+    public Map<Long, List<String>> getByPoiId(@PathVariable("id") Long id);
 }

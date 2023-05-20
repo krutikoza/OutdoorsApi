@@ -20,6 +20,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -45,6 +46,7 @@ public class PointOfInterestsControllerImpl implements PointOfInterestsControlle
         this.entityManager = entityManager;
     }
 
+    @ApiIgnore
     @Override
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -53,6 +55,7 @@ public class PointOfInterestsControllerImpl implements PointOfInterestsControlle
         return pointOfInterestsMapper.asDTO(pointOfInterestsService.save(pointOfInterests));
     }
 
+    @ApiIgnore
     @Override
     @GetMapping("/{id}")
     public PointOfInterestsDTO findById(@PathVariable("id") Long id) {
@@ -60,18 +63,21 @@ public class PointOfInterestsControllerImpl implements PointOfInterestsControlle
         return pointOfInterestsMapper.asDTO(pointOfInterests);
     }
 
+    @ApiIgnore
     @Override
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
         pointOfInterestsService.deleteById(id);
     }
 
+    @ApiIgnore
     @Override
     @GetMapping
     public List<PointOfInterestsDTO> list() {
         return pointOfInterestsMapper.asDTOList(pointOfInterestsService.findAll());
     }
 
+    @ApiIgnore
     @Override
     @GetMapping("/page-query")
     public Page<PointOfInterestsDTO> pageQuery(Pageable pageable) {
@@ -97,7 +103,7 @@ public class PointOfInterestsControllerImpl implements PointOfInterestsControlle
 
 
 
-
+    @ApiIgnore
     @Override
     @PutMapping("/{id}")
     public PointOfInterestsDTO update(@RequestBody PointOfInterestsDTO pointOfInterestsDTO, @PathVariable("id") Long id) {

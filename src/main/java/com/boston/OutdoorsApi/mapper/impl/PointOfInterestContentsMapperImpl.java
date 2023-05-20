@@ -32,7 +32,7 @@ public class PointOfInterestContentsMapperImpl implements PointOfInterestContent
             pointOfInterestContents.setSequence(dto.getSequence());
             pointOfInterestContents.setContentType(dto.getContentType());
             pointOfInterestContents.setThumbnailContentURL(dto.getThumbnailContentURL());
-//            pointOfInterestContents.setContentURL(dto.getContentURL());
+            pointOfInterestContents.setContentURL(dto.getContentURL());
             pointOfInterestContents.setDataModified(dto.getDataModified());
             pointOfInterestContents.setDataCreated(dto.getDataCreated());
             pointOfInterestContents.setPointOfInterests(pointOfInterestsRepository.findById(dto.getPointOfInterestsId()).orElse(null));
@@ -50,7 +50,7 @@ public class PointOfInterestContentsMapperImpl implements PointOfInterestContent
             pointOfInterestContentsDTO.setSequence(entity.getSequence());
             pointOfInterestContentsDTO.setContentType(entity.getContentType());
             pointOfInterestContentsDTO.setThumbnailContentURL(entity.getThumbnailContentURL());
-//            pointOfInterestContentsDTO.setContentURL(entity.getContentURL());
+            pointOfInterestContentsDTO.setContentURL(entity.getContentURL());
             pointOfInterestContentsDTO.setDataModified(entity.getDataModified());
             pointOfInterestContentsDTO.setDataCreated(entity.getDataCreated());
             pointOfInterestContentsDTO.setPointOfInterestsId(entity.getPointOfInterests().getId());

@@ -21,6 +21,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -46,6 +47,7 @@ public class ChaptersControllerImpl implements ChaptersController {
         this.entityManager = entityManager;
     }
 
+    @ApiIgnore
     @Override
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -71,6 +73,7 @@ public class ChaptersControllerImpl implements ChaptersController {
 
     }
 
+    @ApiIgnore
     @Override
     @GetMapping("/{id}")
     public ChaptersDTO findById(@PathVariable("id") Long id) throws NotFoundException  {
@@ -94,7 +97,7 @@ public class ChaptersControllerImpl implements ChaptersController {
             throw new MappingFailedException("Failed to map chapters to chaptersDTO");
         }
     }
-
+    @ApiIgnore
     @Override
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) throws Exception{
@@ -128,6 +131,7 @@ public class ChaptersControllerImpl implements ChaptersController {
         }
     }
 
+    @ApiIgnore
     @Override
     @GetMapping("/page-query")
     public Page<ChaptersDTO> pageQuery(Pageable pageable) throws Exception{
@@ -155,7 +159,7 @@ public class ChaptersControllerImpl implements ChaptersController {
     }
 
 
-
+    @ApiIgnore
     @Override
     @PutMapping("/{id}")
     public ChaptersDTO update(@RequestBody ChaptersDTO chaptersDTO, @PathVariable("id") Long id) throws Exception{

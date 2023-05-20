@@ -11,7 +11,7 @@ public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
     private Long Sequence;
     private Long ContentType;
     private String ThumbnailContentURL;
-    private List<String> ContentURL;
+    private String ContentURL;
     private Date DataModified;
     private Date DataCreated;
 
@@ -61,11 +61,11 @@ public class PointOfInterestContentsDTO{ //extends AbstractDTO<Long> {
         return this.ThumbnailContentURL;
     }
 
-    public void setContentURL(List<String> ContentURL) {
+    public void setContentURL(String ContentURL) {
         this.ContentURL = ContentURL;
     }
 
-    public List<String> getContentURL() {
+    public String getContentURL() {
         return this.ContentURL;
     }
 
