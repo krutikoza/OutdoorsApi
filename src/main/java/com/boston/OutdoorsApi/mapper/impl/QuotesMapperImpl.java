@@ -20,6 +20,7 @@ public class QuotesMapperImpl implements QuotesMapper{
         } else {
             Quotes quotes = new Quotes();
             quotes.setQuote(dto.getQuote());
+            quotes.setAuthor(dto.getAuthor());
             return quotes;
         }
     }
@@ -30,6 +31,7 @@ public class QuotesMapperImpl implements QuotesMapper{
         } else {
             QuotesDTO quotesDTO = new QuotesDTO();
             quotesDTO.setQuote(entity.getQuote());
+            quotesDTO.setAuthor(entity.getAuthor());
             return quotesDTO;
         }
     }

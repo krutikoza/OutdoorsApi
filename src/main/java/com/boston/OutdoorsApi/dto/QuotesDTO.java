@@ -5,17 +5,11 @@ public class QuotesDTO {
 //    private Long id;
 
     private String quote;
+    private String author;
 
     public QuotesDTO() {
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public String getQuote() {
         return quote;
@@ -25,11 +19,20 @@ public class QuotesDTO {
         this.quote = quote;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
     @Override
     public String toString() {
         return "QuotesDTO{" +
-//                "id=" + id +
-                ", quote='" + quote + '\'' +
+                "quote='" + quote + '\'' +
+                ", author='" + author + '\'' +
                 '}';
     }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
 }

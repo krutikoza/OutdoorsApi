@@ -73,7 +73,8 @@ public class QuotesServiceImpl implements QuotesService {
         if (quotesPage.hasContent()) {
             q = quotesPage.getContent().get(0);
             quotes.setQuote(q.getQuote());
-            System.out.println(quotes);
+            quotes.setAuthor(q.getAuthor());
+
             return quotes;
         }
         return new QuotesDTO();
